@@ -1,0 +1,244 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="@string/app_name" />
+
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+
+    <FrameLayout
+        android:id="@+id/containerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ffffff">
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/textViewAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total Amount(Rs):"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+
+                    <EditText
+                        android:id="@+id/amountid"
+                        android:gravity="center_horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:digits="0123456789."
+                        android:maxLength="10"
+                        android:ems="10"
+                        android:filterTouchesWhenObscured="true"
+                        android:inputType="number" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vat(%):"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="2dp"
+                        android:textColor="#000000"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+
+                    <EditText
+                        android:id="@+id/vatid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:digits="0123456789."
+                        android:maxLength="10"
+                        android:ems="10"
+                        android:filterTouchesWhenObscured="true"
+                        android:inputType="number" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:text="Calculate"
+                    android:backgroundTint="#2E86C1"
+                    android:background="@drawable/sal"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttoncalculate"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/black" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewspace"
+                    android:text="  "
+                    />
+
+                <Button
+                    android:text="Reset"
+                    android:backgroundTint="#2E86C1"
+                    android:background="@drawable/sal"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonclear"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="0.2"
+                    android:typeface="serif"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="vat payable:"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/vatpayableid"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.3"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:inputType="numberDecimal"
+                    android:fadingEdgeLength="10dp"
+                    android:ems="10"> </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="0.2"
+                    android:typeface="serif"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Money payable after vat:"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/totalmoneyaftervatid"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.3"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:inputType="numberDecimal"
+                    android:fadingEdgeLength="10dp"
+                    android:ems="10"> </TextView>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    </FrameLayout>
+
+
+        <android.support.design.widget.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/shitstuff"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:layout_marginTop="-24dp"
+            android:fontFamily="monospace"
+            android:maxLines="1"
+            android:background="#ffffff"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="22sp"
+            app:itemTextColor="#000000"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/drawermenu"
+            />
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
