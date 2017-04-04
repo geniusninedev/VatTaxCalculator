@@ -57,7 +57,8 @@
             android:configChanges="orientation|screenSize|keyboardHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".IncomeTaxMain" /></activity>
+                android:value=".MainActivity" /></activity>
+        <activity android:name=".VatTaxHelp"></activity>
     </application>
 
 </manifest>

@@ -39,6 +39,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
+import com.nineinfosys.android.vatcalc.DashBord.GetApp;
 import com.nineinfosys.android.vatcalc.Login.Contacts;
 import com.nineinfosys.android.vatcalc.Login.LoginActivity;
 import com.squareup.okhttp.OkHttpClient;
@@ -87,6 +88,7 @@ EditText amount,vat;
         clear=(Button) findViewById(R.id.buttonclear);
         vatamount=(TextView) findViewById(R.id.vatpayableid);
         totalamount=(TextView)findViewById(R.id.totalmoneyaftervatid);
+        Button buttonhelp = (Button) findViewById(R.id.vatbuttonhelp);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.shitstuff);
@@ -125,9 +127,9 @@ EditText amount,vat;
 
                 if (menuItem.getItemId() == R.id.GetApps) {
 
-                    /*Intent intent=new Intent(MainActivityDrawer.this,RequestApp.class);
+                    Intent intent=new Intent(MainActivity.this,GetApp.class);
                     startActivity(intent);
-*/
+
 
                 }
 
@@ -184,6 +186,14 @@ EditText amount,vat;
                 vat.setText("");
                 vatamount.setText("");
                 totalamount.setText("");
+            }
+        });
+
+        buttonhelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent helpref = new Intent(MainActivity.this,VatTaxHelp.class);
+                startActivity(helpref);
             }
         });
     }
