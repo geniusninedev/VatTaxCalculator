@@ -55,7 +55,6 @@ public class SignUp extends AppCompatActivity {
         mRef = FirebaseDatabase.getInstance().getReference().child(getString(R.string.app_id)).child("Users").child(getString(R.string.email_data));
 
 
-
         // [START auth_state_listener]
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
