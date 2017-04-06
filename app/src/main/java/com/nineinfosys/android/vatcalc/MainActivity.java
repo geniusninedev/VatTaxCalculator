@@ -29,10 +29,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,8 +42,8 @@ import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
 import com.microsoft.windowsazure.mobileservices.http.OkHttpClientFactory;
 import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 import com.nineinfosys.android.vatcalc.DashBord.GetApp;
-import com.nineinfosys.android.vatcalc.Login.Contacts;
-import com.nineinfosys.android.vatcalc.Login.LoginActivity;
+import com.nineinfosys.android.vatcalc.Contacts.Contacts;
+import com.nineinfosys.android.vatcalc.LoginActivity.Login;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.net.MalformedURLException;
@@ -81,6 +83,11 @@ EditText amount,vat;
         setContentView(R.layout.activity_main);
         //firbase auth
         firebaseAuth=FirebaseAuth.getInstance();
+
+        MobileAds.initialize(MainActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewVatTax);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         amount=(EditText)findViewById(R.id.amountid);
         vat=(EditText)findViewById(R.id.vatid);
@@ -289,7 +296,7 @@ EditText amount,vat;
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser()==null){
                     Log.e("ForumMainActivity:", "User was null so directed to Login activity");
-                    Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+                    Intent loginIntent = new Intent(MainActivity.this, Login.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finish();
                     startActivity(loginIntent);
